@@ -1,86 +1,89 @@
 * {
-    font:   "Montserrat 12";
+	bg: #18191c;
+	fg: #f2fcfc;
+	lilac: #c488ec;
+	cyan: #546e7a;
+	tomato: #ff5370;
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #8f6d8cE6;
+	spacing: 0;
+	background-color: transparent;
+	text-color: @fg;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
-
-    background-color:   transparent;
-    text-color:         @fg0;
-
-    margin:     0;
-    padding:    0;
-    spacing:    0;
+	font: "Fira Mono 13";
 }
 
 window {
-    background-color:   @bg0;
+	width: 800px;
+	border-radius: 8px;
+	background-color: #18191cF0; /* bg + 80% opacity) */
+}
 
-    location:       center;
-    width:          700;
-    y-offset:       -200;
-    border-radius:  9;
+mainbox {
+	spacing: 20px;
+	margin: 10px;
+	padding: 30px 0;
 }
 
 inputbar {
-    font:       "Montserrat 17";
-    padding:    12px;
-    spacing:    12px;
-    children:   [ entry ];
+	padding: 0 30px;
+	children: [prompt, textbox-prompt-colon, entry, case-indicator];
+	spacing: 3;
+}
+
+prompt {
+ 	text-color: @lilac;
+}
+
+textbox-prompt-colon {
+	expand: false;
+	str: ":";
+	margin: 0 1ch 0 0;
+ 	text-color: @lilac;
 }
 
 entry {
-    font:   inherit;
-    placeholder         : "Search";
-    placeholder-color   : @fg2;
+ 	text-color: @fg;
 }
 
-message {
-    border:             2px 0 0;
-    border-color:       @bg1;
-    background-color:   @bg1;
+case-indicator {
+ 	text-color: @fg;
 }
 
-textbox {
-    padding:    8px 24px;
+mode-switcher, message {
+  	border: 1px 0;
+  	border-color: @bg;
+}
+
+button, textbox {
+  	background-color: @cyan;
+ 	text-color: @fg;
+  	padding: 5px;
+}
+
+button selected {
+	background-color: transparent;
 }
 
 listview {
-    lines:      10;
-    columns:    1;
-
-    fixed-height:   false;
-    border:         1px 0 0;
-    border-color:   @bg1;
+	scrollbar: true;
+	margin: 0 10px 0 30px;
+	spacing: 6;
+	lines: 8;
 }
 
 element {
-    padding:            8px 16px;
-    spacing:            16px;
-    background-color:   transparent;
+	padding: 5px;
+	highlight: bold underline;
 }
 
-element normal active {
-    text-color: @bg2;
+element normal {
+	background-color: transparent;
 }
 
 element selected normal, element selected active {
-    background-color:   @bg2;
-    text-color:         @fg1;
-}
-
-element-icon {
-    size:   1em;
+   	text-color: @lilac;
 }
 
 element-text {
-    text-color: inherit;
-}
-
-element alternate active {
-    text-color:       @bg2;
+   	text-color: inherit;
 }
